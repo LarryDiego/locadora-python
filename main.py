@@ -36,7 +36,21 @@ while opcao != 5:
     print(f"{novoJogo} foi adicionado com sucesso a lista de jogos.")
   
   elif opcao == 4:
-    print("Locar um jogo (Ainda por fazer).")
+    if quantidadeJogos >= 1:
+      print("Lista de jogos disponíveis para locação:")
+      for i in range(quantidadeJogos):
+        numeroLista = i + 1
+        print(f"{numeroLista}) {listaJogos[i]}")
+
+      print()
+      deletarJogo = int(input("Digite o número do jogo que deseja locar: ")) - 1
+      jogoEscolhido = listaJogos[deletarJogo]
+      print()
+      print(f"Jogo escolhido para locação: {jogoEscolhido}")
+      del listaJogos[deletarJogo]
+
+    else:
+      print("Nenhum jogo disponível.")
   
   elif opcao == 5:
     print("Obrigado por usar a nossa locadora.")
